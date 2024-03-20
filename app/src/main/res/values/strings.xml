@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">WeightAnalyzer</string>
+    <string name="welcome_to_the_weight_analyzer_app">Welcome To The Weight Analyzer App</string>
+    <string name="name">Name</string>
+    <string name="enter_your_name">Enter Your Name</string>
+    <string name="enter_your_weight_in_kgs">Enter your weight in Kgs</string>
+    <string name="weight_in_kgs">Weight in Kgs</string>
+    <string name="analyze">Analyze</string>
+    <string name="your_results_are">Your results are</string>
+    <string name="share">Share</string>
+</resources>
