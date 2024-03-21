@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+
         setContentView(R.layout.activity_main);
 
             nme = findViewById(R.id.name);
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     String uName=nme.getText().toString();
-                    int uWgt= Integer.parseInt(wgt.getText().toString());
+                    String uWgt= wgt.getText().toString();
                     Intent i = new Intent(getApplication(), secondactivity.class);
                     i.putExtra("name",uName);
                     i.putExtra("weight",uWgt);
