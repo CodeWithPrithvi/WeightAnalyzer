@@ -2,6 +2,7 @@ package com.example.weightanalyzer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -32,6 +33,12 @@ public class secondactivity extends AppCompatActivity {
         String userWeight = i.getStringExtra("weight");
         String message= analyze(userName,userWeight);
         disp.setText(message);
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shareData(userWeight,message);
+            }
+        });
         }
 
     public String analyze(String nme, String wght) {
@@ -45,6 +52,13 @@ public class secondactivity extends AppCompatActivity {
             return nme + " you are overweight";
         }
 
+        }
+        public void shareData(String nme,String mssg){
+        Intent i=new Intent(Intent.ACTION_SEND);
+        i.setType("text/plain");
+        i.putExtra(Intent.EXTRA_SUBJECT,nme+"'s weight analysis results");
+        i.putExtra(Intent.EXTRA_TEXT,mssg);
+        startActivity(Intent.createChooser(i,"Choose Platform"));
         }
 }
 
