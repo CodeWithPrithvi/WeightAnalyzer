@@ -8,4 +8,8 @@
     <string name="analyze">Analyze</string>
     <string name="your_results_are">Your results are</string>
     <string name="share">Share</string>
+    <string name="select_your_gender">Select your gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="enter_your_daily_amount_of_activity">Enter your daily amount of activity</string>
 </resources>
