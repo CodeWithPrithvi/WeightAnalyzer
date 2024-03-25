@@ -12,4 +12,6 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="enter_your_daily_amount_of_activity">Enter your daily amount of activity</string>
+    <string name="enter_your_height_in_cm">Enter your height in cm</string>
+    <string name="height_in_cm">Height in cm</string>
 </resources>
