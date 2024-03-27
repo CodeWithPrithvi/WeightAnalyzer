@@ -31,7 +31,9 @@ public class secondactivity extends AppCompatActivity {
         Intent i = getIntent();
         String userName = i.getStringExtra("name");
         String userWeight = i.getStringExtra("weight");
-        String message= analyze(userName,userWeight);
+        String userHeight=i.getStringExtra("height");
+        String userGen=i.getStringExtra("gender");
+        String message= analyze(userName,userWeight,userHeight,userGen);
         disp.setText(message);
         share.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,18 +43,37 @@ public class secondactivity extends AppCompatActivity {
         });
         }
 
-    public String analyze(String nme, String wght) {
+    public String analyze(String name, String weight, String height, String gender) {
+        int weightValue = Integer.parseInt(weight);
+        int heightValue = Integer.parseInt(height);
+        double bmi = calculateBMI(weightValue, heightValue);
 
-       int wght1 = Integer.parseInt(wght);
-        if (wght1 <= 59) {
-            return nme + " you are underweight";
-        } else if (wght1 <= 73) {
-            return nme + " you have ideal weight";
+        if (gender.equalsIgnoreCase("male")) {
+            if (bmi < 18.5) {
+                return name + " you are underweight";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                return name + " you have normal weight";
+            } else {
+                return name + " you are overweight";
+            }
+        } else if (gender.equalsIgnoreCase("female")) {
+            if (bmi < 18.5) {
+                return name + " you are underweight";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                return name + " you have normal weight";
+            } else {
+                return name + " you are overweight";
+            }
         } else {
-            return nme + " you are overweight";
+            return "Invalid gender";
         }
+    }
 
-        }
+    private double calculateBMI(int weight, int height) {
+
+        double heightInMeters = height / 100.0;
+        return weight / (heightInMeters * heightInMeters);
+    }
         public void shareData(String nme,String mssg){
         Intent i=new Intent(Intent.ACTION_SEND);
         i.setType("text/plain");
